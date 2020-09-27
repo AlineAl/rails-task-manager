@@ -1,11 +1,11 @@
 class TasksController < ApplicationController
+  before_action :take_id, only: [ :find, :edit, :update, :destroy ]
 
   def index
     @tasks = Task.all
   end
 
   def find
-    take_id
   end
 
   def new
@@ -20,20 +20,15 @@ class TasksController < ApplicationController
   end
 
   def edit
-    take_id
   end
 
   def update
-    @task = take_id
     @task.update(task_params)
-
     redirect_to task_path(@task)
   end
 
   def destroy
-    @task = take_id
     @task.destroy 
-
     redirect_to tasks_path
   end
 

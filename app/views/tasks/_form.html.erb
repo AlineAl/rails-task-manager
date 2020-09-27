@@ -1,0 +1,7 @@
+<div class="form-group">
+  <%= simple_form_for(@task) do |f| %>
+    <%= f.input :title %>
+    <%= f.input :details %>
+    <%= f.submit class: 'btn btn-success'%>
+  <% end %>
+</div>
